@@ -1,0 +1,486 @@
+GeXiuting@DESKTOP-S5QHVTF MINGW64 / (master)
+$ git config --global user.name "gexiuting"
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 / (master)
+$  git config --global user.email "email@example.com
+> ^C
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 / (master)
+$ git config --global user.email "1683245057@qq.com"
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 / (master)
+$ mkdir learngit
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 / (master)
+$ cd learngit
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git init
+Initialized empty Git repository in E:/Program Files/Git/learngit/.git/
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git add test.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git commit -m "wrote a readme file"
+[master (root-commit) 86171ef] wrote a readme file
+ 1 file changed, 2 insertions(+)
+ create mode 100644 test.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git diff test.tx
+fatal: ambiguous argument 'test.tx': unknown revision or path not in the workin tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git diff test.txt
+diff --git a/test.txt b/test.txt
+index d8036c1..013b5bc 100644
+--- a/test.txt
++++ b/test.txt
+@@ -1,2 +1,2 @@
+-Git is a version control system.
++Git is a distributed version control system.
+ Git is free software.
+\ No newline at end of file
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git add test.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   test.txt
+
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git commit -m "add distributed"
+[master 4915582] add distributed
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git add test.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git commit -m "append GPL"
+[master 368f8f8] append GPL
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git log
+commit 368f8f876e0bb383dba64f3da0ad75c6f5405afe (HEAD -> master)
+Author: gexiuting <1683245057@qq.com>
+Date:   Sat Feb 3 21:15:25 2018 +0800
+
+    append GPL
+
+commit 49155821e9cee1c7c09161dc7bd1e3ea5e8f99c3
+Author: gexiuting <1683245057@qq.com>
+Date:   Sat Feb 3 21:11:36 2018 +0800
+
+    add distributed
+
+commit 86171eff61dc340ef438b84658ffd8c3013b5268
+Author: gexiuting <1683245057@qq.com>
+Date:   Sat Feb 3 18:43:56 2018 +0800
+
+    wrote a readme file
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git log --pretty=online
+fatal: invalid --pretty format: online
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git log --pretty=oneline
+368f8f876e0bb383dba64f3da0ad75c6f5405afe (HEAD -> master) append GPL
+49155821e9cee1c7c09161dc7bd1e3ea5e8f99c3 add distributed
+86171eff61dc340ef438b84658ffd8c3013b5268 wrote a readme file
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git reset --hard HEAD
+HEAD is now at 368f8f8 append GPL
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git reset --hard HEAD^
+HEAD is now at 4915582 add distributed
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ cat test.txt
+Git is a distributed version control system.
+Git is free software.
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git log
+commit 49155821e9cee1c7c09161dc7bd1e3ea5e8f99c3 (HEAD -> master)
+Author: gexiuting <1683245057@qq.com>
+Date:   Sat Feb 3 21:11:36 2018 +0800
+
+    add distributed
+
+commit 86171eff61dc340ef438b84658ffd8c3013b5268
+Author: gexiuting <1683245057@qq.com>
+Date:   Sat Feb 3 18:43:56 2018 +0800
+
+    wrote a readme file
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git reset --hard 368f8f8
+HEAD is now at 368f8f8 append GPL
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ cat test.txt
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git reflog
+368f8f8 (HEAD -> master) HEAD@{0}: reset: moving to 368f8f8
+4915582 HEAD@{1}: reset: moving to HEAD^
+368f8f8 (HEAD -> master) HEAD@{2}: reset: moving to HEAD
+368f8f8 (HEAD -> master) HEAD@{3}: commit: append GPL
+4915582 HEAD@{4}: commit: add distributed
+86171ef HEAD@{5}: commit (initial): wrote a readme file
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   test.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        license.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git add test.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git add license.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   license.txt
+        modified:   test.txt
+
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git commit -m "understand how stage works"
+[master 5a3a86a] understand how stage works
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 license.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ cat readme.txt
+cat: readme.txt: No such file or directory
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ cat test.txt
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+Git has a mutable index called stage.
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git add test.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git test.txt
+
+git: 'test.txt' is not a git command. See 'git --help'.
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ cat test.txt
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+Git has a mutable index called stage.
+Git tracks changes.
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git add test.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   test.txt
+
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git add test.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   test.txt
+
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git commit -m "git tracks changes"
+[master 857aed9] git tracks changes
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git checkout -- test.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ cat test.txt
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+Git has a mutable index called stage.
+Git tracks changes.
+Git tracks changes of files.
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git add test.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   test.txt
+
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git reset Head test.txt
+Unstaged changes after reset:
+M       test.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git checkout -- test.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ cat test.txt
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+Git has a mutable index called stage.
+Git tracks changes.
+Git tracks changes of files.
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git add haha.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git commit -m "add haha.txt"
+[master 3e6a42c] add haha.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 haha.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ rm haha.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    haha.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git rm haha.txt
+rm 'haha.txt'
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git commit -m "remove haha.txt"
+[master 92fbd7a] remove haha.txt
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 haha.txt
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ ssh-keygen -t rsa -C "1683245057@qq.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/GeXiuting/.ssh/id_rsa): gxt12345
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in gxt12345.
+Your public key has been saved in gxt12345.pub.
+The key fingerprint is:
+SHA256:cP28WnR3R82Lzh1rV/tBUrgROcZ8T1+fzxgJrhddJPM 1683245057@qq.com
+The key's randomart image is:
++---[RSA 2048]----+
+|            o.+..|
+|         .  .*o*=|
+|      . . ...=o=E|
+|       o   oo Oo=|
+|        S  .+=.B*|
+|          ..+o=.X|
+|           .oo *.|
+|           o  . +|
+|          .     .|
++----[SHA256]-----+
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ pwd
+/learngit
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git remote add origin git@github.com:/learngit.git
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git push -u origin master
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ ssh -T git@github.com
+Warning: Permanently added the RSA host key for IP address '192.30.255.112' to the list of known hosts.
+git@github.com: Permission denied (publickey).
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ ssh-keygen -t rsa -C "1683245057@qq.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/GeXiuting/.ssh/id_rsa): gxt12345
+gxt12345 already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in gxt12345.
+Your public key has been saved in gxt12345.pub.
+The key fingerprint is:
+SHA256:2yrdjGdcBw7EcvKz4UXDzOEQ+LOXYRdBNk42DKAsHQU 1683245057@qq.com
+The key's randomart image is:
++---[RSA 2048]----+
+|        E==*o=O. |
+|       o+o+o*=oo |
+|      . +B ..... |
+|       .  B = .  |
+|        S. @ =   |
+|         o+ = .  |
+|       ..=.o .   |
+|      . o.*      |
+|       ..o       |
++----[SHA256]-----+
+
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /
+$ cd learngit
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git remote add origin https://github.com/xiaomoqi123/learngit
+fatal: remote origin already exists.
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ ^C
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git remote add origin https://github.com/xiaomoqi123/learngit.git
+fatal: remote origin already exists.
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git remote rm origin
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git remote rm origin1
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git remote rm origin2
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git remote add origin https://github.com/xiaomoqi123/learngit.git
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git push -u origin master
+Logon failed, use ctrl+c to cancel basic credential prompt.
+Username for 'https://github.com': 1683245057@qq.com
+Counting objects: 20, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (20/20), 1.67 KiB | 570.00 KiB/s, done.
+Total 20 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), done.
+To https://github.com/xiaomoqi123/learngit.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git clone git@github.com:xiaomoqi123/test.git
+Cloning into 'test'...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$ git push origin master
+Everything up-to-date
+
+GeXiuting@DESKTOP-S5QHVTF MINGW64 /learngit (master)
+$
+
