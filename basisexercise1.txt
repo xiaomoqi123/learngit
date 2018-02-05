@@ -1,0 +1,14 @@
+内部引用
+<head>
+<script type="text/javascript">
+document.write("Hello
+ world!");
+</script>
+</head>
+
+外部引用
+<head>
+<script
+ type="text/javascript" src="路径"> 
+</script>
+</head>
