@@ -1,0 +1,43 @@
+
+//创建一个二维数组
+var arr = new Array(a.length)
+		for(var i = 0; i < arr.length;i++){
+			arr[i] = new Array(a.length);	
+		}
+
+//遍历数组a，将数组中出现的不同的元素存入数组中，然后再遍历一次数字，将出现的元素的个数放入二维数组
+var index = 0;
+for(var k = 0; k < arr.length; k++){
+for(var j = 0;j < a.length;j++)
+	if(a[k]!=arr[j][0]){
+	arr[index][0] = a[k];
+	}
+index++;
+}
+
+
+for(var r =0;r < arr.length;r++){
+	var count = 0;
+	for(var t = 0; t<a.length;t++){
+	if(arr[r][0] == a[t])
+	{
+		count++;
+	}
+	}
+	arr[r][1] = count;
+}
+
+//遍历二维数组，找出出现次数最多的字符
+var max = 0;
+for(var k = 0; k < arr.length; k++){
+for(var j = 0;j < arr.length;j++){
+	if(arr[k][j]>max){
+	max = arr[k][j];
+	}
+}}
+
+for(var i = 0; i < arr.length;i++){
+if(max == arr[i][1])
+{
+	console.log(arr[i][0])
+}}
