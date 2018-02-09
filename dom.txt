@@ -1,0 +1,13 @@
+
+<input type='text' id='username'></input>
+<input type='text' id='password'></input>
+<button type='button'>登录</button>
+
+var myNode = document.getElementById('input')
+if(myNode[0] == '123' && myNode[1] == '123'){
+	alert("login success");
+}
+else 
+{
+	myNode[1].reset();
+	}
